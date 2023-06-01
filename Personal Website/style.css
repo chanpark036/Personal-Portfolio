@@ -268,7 +268,7 @@ svg{
 
 @keyframes name_cursor{
   0%, 100%{border-color: transparent;}
-  50%{border-color: #000;}
+  50%{border-color: var(--color-text)}
 }
 
 @keyframes name_typing{
