@@ -34,6 +34,7 @@ export default class Controls{
             "(min-width: 969px)": () => {
                 console.log("desktop")
                 //reset
+                this.room.position.set(0,0,0);
                 this.room.scale.set(0.21,0.21,0.21);
                 this.rectLights[0].width = 0.3;
                 this.rectLights[0].height = 0.3;
@@ -160,7 +161,7 @@ export default class Controls{
 
                 //reset
                 this.room.position.set(0,0,0);
-                this.room.scale.set(0.2,0.2,0.2);
+                this.room.scale.set(0.15,0.15,0.15);
                 this.rectLights[0].width = 0.2;
                 this.rectLights[0].height = 0.2;
 
@@ -214,6 +215,7 @@ export default class Controls{
                         height: 0.3 * 3,
                     },"second");
 
+                    
                 this.thirdMoveTimeline = new GSAP.timeline({
                     scrollTrigger:{
                         trigger: ".third-move",
@@ -224,7 +226,7 @@ export default class Controls{
                     }
                 }).to(this.room.position,{
                     x: () => {
-                        return this.sizes.width * -0.00005;
+                        return this.sizes.width * 0.002;
                     },
                     z: () => {
                         return this.sizes.height * 0.007;

@@ -1,148 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body class = "light-theme">
-    <div class="experience">
-      <canvas class = "experience-canvas"></canvas>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite App</title>
+</head>
+
+<body class="light-theme">
+  <div class="experience">
+    <canvas class="experience-canvas"></canvas>
+  </div>
+
+  <div class="page">
+
+    <div class="toggle-bar">
+      <div class="sun-wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24">
+          <path fill="currentColor"
+            d="M12 15q1.25 0 2.125-.875T15 12q0-1.25-.875-2.125T12 9q-1.25 0-2.125.875T9 12q0 1.25.875 2.125T12 15Zm0 2q-2.075 0-3.537-1.463Q7 14.075 7 12t1.463-3.538Q9.925 7 12 7t3.538 1.462Q17 9.925 17 12q0 2.075-1.462 3.537Q14.075 17 12 17ZM2 13q-.425 0-.712-.288Q1 12.425 1 12t.288-.713Q1.575 11 2 11h2q.425 0 .713.287Q5 11.575 5 12t-.287.712Q4.425 13 4 13Zm18 0q-.425 0-.712-.288Q19 12.425 19 12t.288-.713Q19.575 11 20 11h2q.425 0 .712.287.288.288.288.713t-.288.712Q22.425 13 22 13Zm-8-8q-.425 0-.712-.288Q11 4.425 11 4V2q0-.425.288-.713Q11.575 1 12 1t.713.287Q13 1.575 13 2v2q0 .425-.287.712Q12.425 5 12 5Zm0 18q-.425 0-.712-.288Q11 22.425 11 22v-2q0-.425.288-.712Q11.575 19 12 19t.713.288Q13 19.575 13 20v2q0 .425-.287.712Q12.425 23 12 23ZM5.65 7.05 4.575 6q-.3-.275-.288-.7.013-.425.288-.725.3-.3.725-.3t.7.3L7.05 5.65q.275.3.275.7 0 .4-.275.7-.275.3-.687.287-.413-.012-.713-.287ZM18 19.425l-1.05-1.075q-.275-.3-.275-.712 0-.413.275-.688.275-.3.688-.287.412.012.712.287L19.425 18q.3.275.288.7-.013.425-.288.725-.3.3-.725.3t-.7-.3ZM16.95 7.05q-.3-.275-.287-.688.012-.412.287-.712L18 4.575q.275-.3.7-.288.425.013.725.288.3.3.3.725t-.3.7L18.35 7.05q-.3.275-.7.275-.4 0-.7-.275ZM4.575 19.425q-.3-.3-.3-.725t.3-.7l1.075-1.05q.3-.275.713-.275.412 0 .687.275.3.275.288.688-.013.412-.288.712L6 19.425q-.275.3-.7.287-.425-.012-.725-.287ZM12 12Z" />
+        </svg>
+      </div>
+      <button class="toggle-button">
+        <div class="toggle-circle"></div>
+      </button>
+      <div class="moon-wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24">
+          <path fill="currentColor"
+            d="M12 21q-3.75 0-6.375-2.625T3 12q0-3.75 2.625-6.375T12 3q.35 0 .688.025.337.025.662.075-1.025.725-1.637 1.887Q11.1 6.15 11.1 7.5q0 2.25 1.575 3.825Q14.25 12.9 16.5 12.9q1.375 0 2.525-.613 1.15-.612 1.875-1.637.05.325.075.662Q21 11.65 21 12q0 3.75-2.625 6.375T12 21Zm0-2q2.2 0 3.95-1.212 1.75-1.213 2.55-3.163-.5.125-1 .2-.5.075-1 .075-3.075 0-5.238-2.162Q9.1 10.575 9.1 7.5q0-.5.075-1t.2-1q-1.95.8-3.162 2.55Q5 9.8 5 12q0 2.9 2.05 4.95Q9.1 19 12 19Zm-.25-6.75Z" />
+        </svg>
+      </div>
     </div>
 
-    <div class="page">
+    <div class="page-wrapper">
 
-      <div class="toggle-bar">
-        <div class="sun-wrapper">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path fill="currentColor" d="M12 15q1.25 0 2.125-.875T15 12q0-1.25-.875-2.125T12 9q-1.25 0-2.125.875T9 12q0 1.25.875 2.125T12 15Zm0 2q-2.075 0-3.537-1.463Q7 14.075 7 12t1.463-3.538Q9.925 7 12 7t3.538 1.462Q17 9.925 17 12q0 2.075-1.462 3.537Q14.075 17 12 17ZM2 13q-.425 0-.712-.288Q1 12.425 1 12t.288-.713Q1.575 11 2 11h2q.425 0 .713.287Q5 11.575 5 12t-.287.712Q4.425 13 4 13Zm18 0q-.425 0-.712-.288Q19 12.425 19 12t.288-.713Q19.575 11 20 11h2q.425 0 .712.287.288.288.288.713t-.288.712Q22.425 13 22 13Zm-8-8q-.425 0-.712-.288Q11 4.425 11 4V2q0-.425.288-.713Q11.575 1 12 1t.713.287Q13 1.575 13 2v2q0 .425-.287.712Q12.425 5 12 5Zm0 18q-.425 0-.712-.288Q11 22.425 11 22v-2q0-.425.288-.712Q11.575 19 12 19t.713.288Q13 19.575 13 20v2q0 .425-.287.712Q12.425 23 12 23ZM5.65 7.05 4.575 6q-.3-.275-.288-.7.013-.425.288-.725.3-.3.725-.3t.7.3L7.05 5.65q.275.3.275.7 0 .4-.275.7-.275.3-.687.287-.413-.012-.713-.287ZM18 19.425l-1.05-1.075q-.275-.3-.275-.712 0-.413.275-.688.275-.3.688-.287.412.012.712.287L19.425 18q.3.275.288.7-.013.425-.288.725-.3.3-.725.3t-.7-.3ZM16.95 7.05q-.3-.275-.287-.688.012-.412.287-.712L18 4.575q.275-.3.7-.288.425.013.725.288.3.3.3.725t-.3.7L18.35 7.05q-.3.275-.7.275-.4 0-.7-.275ZM4.575 19.425q-.3-.3-.3-.725t.3-.7l1.075-1.05q.3-.275.713-.275.412 0 .687.275.3.275.288.688-.013.412-.288.712L6 19.425q-.275.3-.7.287-.425-.012-.725-.287ZM12 12Z"/></svg>
+      <section class="hero">
+        <div class="hero-wrapper">
+
+          <div class="hero-main">
+            <h1 class="hero-main-title">Chan Park</h1>
+            <p class="hero-main-description">&nbsp; &nbsp; student | software engineer</p>
+
+          </div>
+
         </div>
-        <button class="toggle-button">
-          <div class="toggle-circle"></div>
-        </button>
-        <div class="moon-wrapper">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path fill="currentColor" d="M12 21q-3.75 0-6.375-2.625T3 12q0-3.75 2.625-6.375T12 3q.35 0 .688.025.337.025.662.075-1.025.725-1.637 1.887Q11.1 6.15 11.1 7.5q0 2.25 1.575 3.825Q14.25 12.9 16.5 12.9q1.375 0 2.525-.613 1.15-.612 1.875-1.637.05.325.075.662Q21 11.65 21 12q0 3.75-2.625 6.375T12 21Zm0-2q2.2 0 3.95-1.212 1.75-1.213 2.55-3.163-.5.125-1 .2-.5.075-1 .075-3.075 0-5.238-2.162Q9.1 10.575 9.1 7.5q0-.5.075-1t.2-1q-1.95.8-3.162 2.55Q5 9.8 5 12q0 2.9 2.05 4.95Q9.1 19 12 19Zm-.25-6.75Z"/></svg>
+        <div class="hero-second">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 1024 1024">
+            <path fill="currentColor"
+              d="M8.2 275.4c0-8.6 3.4-17.401 10-24.001c13.2-13.2 34.8-13.2 48 0l451.8 451.8l445.2-445.2c13.2-13.2 34.8-13.2 48 0s13.2 34.8 0 48L542 775.399c-13.2 13.2-34.8 13.2-48 0l-475.8-475.8c-6.8-6.8-10-15.4-10-24.199z" />
+            <animate attributeName="opacity" dur="1.6s" values="0;1;0" repeatCount="indefinite" begin="0.1" />
+          </svg>
+          <!-- <p class="hero-second-subheading">Chan Park</p> -->
+          <!-- <p class="hero-second-subheading"> Portfolio</p> -->
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50"><path fill="currentColor" fill-rule="evenodd" d="M10 14a2 2 0 1 1-4 0a2 2 0 0 1 4 0Zm1.78-8.841a.75.75 0 0 0-1.06 0l-1.97 1.97V.75a.75.75 0 0 0-1.5 0v6.379l-1.97-1.97a.75.75 0 0 0-1.06 1.06l3.25 3.25L8 10l.53-.53l3.25-3.25a.75.75 0 0 0 0-1.061Z" clip-rule="evenodd"/></svg> -->
         </div>
-      </div>
+      </section>
 
-      <div class="page-wrapper">
+      <div class="first-move section-margin"></div>
 
-        <section class="hero">
-          <div class="hero-wrapper">
+      <section class="first-section section right">
+        <div class="section-intro-wrapper">
+          <h1 class="section-title">
+            <span class="section-title-text">About Me</span>
+          </h1>
+          <span class="section-number">01</span>
+        </div>
+        <div class="section-detail-wrapper">
+          <h3 class="section-heading">Introduction</h3>
+          <p class="section-text">Hello! My name is Chan Park, and I am a student interested in all things software
+            development, machine learning, and algorithmic design.</p>
+          <p class="section-text">I'm originally from San Diego, California, but currently I'm at Durham, North Carolina
+            as a senior attending Duke University.
+            I'm majoring in Computer Science with a concentration in Artificial Intelligence and Machine Learning and
+            minors in Economics and Philosophy.
+            Let's grab a coffee if you're in the area!</p>
+          <h3 class="section-heading">Hobbies and Interests</h3>
+          <p class="section-text">In my free time, I love to explore restaurants and cafes around me!
+            I am a big coffee / tea fanatic and I love finding new vibey places to study and do work.
+            I also enjoy playing the cello -- although I only do this when I am home
+            because my cello is too big to bring around -- and looking through my daily mixes and discover weekly
+            recommendations on spotify to see if there are any new songs I can add to my playlists. I also love learning 
+            new skills, and recently that has taken the form of trying all kinds of new recipes.</p>
+          <h3 class="section-heading">Contacts</h3>
+          <p class="section-text">The best way to contact me is my email! It's <b>cpark036@gmail.com</b>.
+            The second best way to contact me is to send me a message through LinkedIn, which is at <a
+              href="https://www.linkedin.com/in/chan-park-036/">LinkedIn Profile</a>.
+            I am currently looking for career opportunities in SWE, Quant, and ML, so please
+            shoot me a message if you're recruiting for any related roles!
+          <h3 class="section-heading">More Information</h3>
+          <p class="section-text">Here is my Resume as a link to a google drive share and a link to download:</p>
+          <p class="section-text">Google Drive Link: <a
+              href="https://drive.google.com/file/d/1nq9FU5_eZvxRiyf7KsuZmHD2w79FFJIt/view?usp=sharing">Link to
+              Drive</a></p>
+          <span class="section-text">Download Link: </span>
+          <a class="section-text" href="Chan_Park_Resume.pdf" download>Download Resume</a>
+      </section>
 
-            <div class="hero-main">
-              <h1 class="hero-main-title">Chan Park</h1>
-              <p class="hero-main-description">&nbsp; &nbsp; student | software engineer</p>
-            </div>
-            
-            <!-- <div class="hero-second">
-              <p class="hero-second-subheading">Chan Park</p>
-              <p class="hero-second-subheading"> Portfolio</p>
-            </div> -->
+      <div class="second-move section-margin"></div>
 
-          </div>
-        </section>
-
-        <div class="first-move section-margin"></div>
-
-        <section class="first-section section right">
-          <div class="section-intro-wrapper">
-            <h1 class="section-title">
-              <span class="section-title-text">About Me</span>
-            </h1>
-            <span class="section-number">01</span>
-          </div>
-          <div class="section-detail-wrapper">
-            <h3 class="section-heading">Introduction</h3>
-              <p class="section-text">Hello! My name is Chan Park, and I am a student interested in all things software development, machine learning, and algorithmic design.</p>
-              <p class="section-text">I'm originally from San Diego, California, but currently I'm at Durham, North Carolina as a senior attending Duke University. 
-                I'm majoring in Computer Science with a concentration in Artificial Intelligence and Machine Learning and minors in Economics and Philosophy. 
-                Let's grab a coffee if you're in the area!</p>
-              <h3 class="section-heading">Hobbies and Interests</h3>
-              <p class="section-text">In my free time, I love to explore restaurants and cafes around me! 
-                I am a big coffee / tea fanatic and I love finding new vibey places to study and do work. 
-                I also enjoy playing the cello -- although I only do this when I am home 
-                because my cello is too big to bring around -- and looking through my daily mixes and discover weekly
-              recommendations on spotify to see if there are any new songs I can add to my playlists. I have also recently been
-              trying to dedicate myself to going to the gym regularly and learn more recipes to attempt.</p>
-              <h3 class="section-heading">Contacts</h3>
-              <p class="section-text">The best way to contact me is my email! It's <b>cpark036@gmail.com</b>. 
-                The second best way to contact me is to send me a message through LinkedIn, which is at <a href="https://www.linkedin.com/in/chan-park-036/">LinkedIn Profile</a>.
-                I am currently looking for career opportunities in SWE, Quant, and ML, so please 
-                shoot me a message if you're recruiting for any related roles!
-              <h3 class="section-heading">More Information</h3>
-              <p class="section-text">Here is my Resume as a link to a google drive share and a link to download:</p>
-                <p class="section-text">Google Drive Link: <a href="https://drive.google.com/file/d/1BPoL6pjwY4I9fG5nrhHjzxexoY2hWFDJ/view?usp=sharing">Link to Drive</a></p>
-                <span class="section-text">Download Link: </span>
-                <a class="section-text" href="Chan_Park_Resume.pdf" download>Download Resume</a>
-        </section>
-
-        <div class="second-move section-margin"></div>
-
-        <section class="second-section section left">
-          <div class="section-intro-wrapper">
-            <h1 class="section-title">
-              <span class="section-title-text">Relevant Experiences</span>
-            </h1>
-            <span class="section-number">02</span>
-          </div>
-          <div class="section-detail-wrapper">
-            <h3 class="section-heading">Duke University</h3>
-            <p class="section-text">I am currently a research assistant working on an AutoML project for assisted learning. 
-              The objective of the project is to automate the entire machine learning process-- from data preprocessing to hyperparameter optimization -- 
-            for gradient assisted learning, which is a novel method of using a decentralized system of models that can improve each other without leaking data to each other.</p>
-            <p class="section-text"> I've also served as an undergraduate teaching assistant for a year. I helped teach
-              the classes CS330: Design and Analysis of Algorithms and CS201: Data Structures and Algorithms in the Spring 2023 and Fall 2022 terms respectively. Some of my duties
-              included grading the works of students, which consisted of projects, proofs, and algorithms, holding weekly 2-hour office hours to answer questions regarding concepts,
-              and leading weekly discussion sections, in which I and a partner would help our class of 25 students go over the material from the past week.
-            </p>
+      <section class="second-section section left">
+        <div class="section-intro-wrapper">
+          <h1 class="section-title">
+            <span class="section-title-text">Relevant Experiences</span>
+          </h1>
+          <span class="section-number">02</span>
+        </div>
+        <div class="section-detail-wrapper">
+          <h3 class="section-heading">Duke University</h3>
+          <p class="section-text">I am currently a research assistant working on an AutoML project for assisted
+            learning. The objective of the project is to automate the entire machine learning process-- from data
+            preprocessing to hyperparameter optimization -- for gradient assisted learning, which is a novel method of
+            using a decentralized system of models that can improve each other without leaking data to each other. My
+            specific role relates to exploring different options for hyperparameter search, particularly grid search,
+            gradient-based optimization, or automated bayesian optimization.
+          </p>
+          <p class="section-text"> I've also served as an undergraduate teaching assistant for a year. I helped teach
+            the classes CS330: Design and Analysis of Algorithms and CS201: Data Structures and Algorithms in the Spring
+            2023 and Fall 2022 terms respectively. Some of my duties
+            included grading the works of students, which consisted of projects, proofs, and algorithms, holding weekly
+            2-hour office hours to answer questions regarding concepts,
+            and leading weekly discussion sections, in which I and a partner would help our class of 25+ students go
+            over the material from the past week.
+          </p>
           <h3 class="section-heading">Capital One</h3>
-          <p class="section-text">As I am currently an intern here this is tbd!</p>
+          <p class="section-text">The overall project I worked on was a feedback form component for an internal call
+            quality platform called SAGE serving around 16,000 monthly users. Although it seemed like a small task at
+            first, considering it just consisted of two sparse pages with very few inputs -- one for the actual form itself and
+            one for certain people to query past forms -- I quickly learned it was not. The project took all 10 weeks, during
+            which we:
+            <br>&#x2022; designed the components using Vue.js
+            <br>✧ built a validator for the inputs and passed in the data as a JSON to a backend-for-frontend
+              layer that we also made
+            <br>&#x2022; registered entitlements that would only make certain users see the search option
+            <br>✧ created search and submit endpoints on an AWS lambda that received the Information
+              from the BFF layer once passing through a security layer
+            <br>&#x2022; built unit and functional testing with almost 100% code coverage
+            <br>✧ submitted the HTTP requests to AWS OpenSearch, which contained
+              indices that we also configured
+            <br>✧ created a pipeline and deployed the application to qa then prod
+          </p>
+          <p class="section-text">
+            Whew! It was a lot of fun, and I learned so much from everyone around me, especially my fellow interns.
+            My specific responsibilities were the star bullets, but we all helped each other often.
+          </p>
           <h3 class="section-heading">Cigna</h3>
-            <p class="section-text">In the beginning weeks of my internship I worked on </p>
-            <p class="section-text"> </p>
+          <p class="section-text">
+            In the beginning of my internship, I worked on creating dashboards for a web-app called the Cigna
+            Global Fitness Challenge, which promotes fitness campaigns that employers could subscribe to.
+            I utilized Google Analytics to log user interactions and a Google Firebase Dashboard to display these
+            stats in realtime. Then, I created an AWS Cloudwatch Dashboard to monitor the health of the MySQL database in 
+            AWS RDS and the AWS EC2 instances used. Together, these dashboards helped prevent annually-occuring scalability issues
+            by a significant margin because developers were now able to predict issues better and react quicker.</p>
+
+            <p class="section-text">Then, I briefly worked on creating a web scraper in BeautifulSoup for visualizing Cigna's employee 
+              hierarchy as a side project for my manager. Although the task wasn't too hard, scraping all the data and 
+              storing it in a SQLite DB took extremely long. Thus, with another intern, I multithreaded the 
+              process using Python's threading library (the Global Interpreter Lock did not matter much here because the program
+              was bottlenecked by I/O-bound tasks), reducing the time from ~6 hours to ~30 minutes.
+            </p>
+
+            <p class="section-text">I spent the last half of the internship working on revamping a virtual reality meditation app. 
+              I and another intern worked in Blender, Unity, and C#, utilizing the Meta Avatars SDK and the Oculus
+              Integration SDK, to change the existing app, in which a user could only look around at a calming scene,
+              to include a social mode. In this interactive multiplayer mode, users could move around, talk to others,
+              choose avatars, and grab and throw objects. I primarily worked on the latter two capabilities, and I was delighted
+              to hear our work was met with so much enthusiasm that my team presented it at Cigna's booth at the Fall '22 
+              Grace Hopper Conference!
+            </p>
           <h3 class="section-heading">BNSoft</h3>
-          <h3 class="section-heading">University of California, San Diego</h3>
-          <h3 class="section-heading">San Diego State University</h3>
-          </div>
-        </section>
+          <p class="section-text">
+            I was located in Seoul, South Korea during this internship, and I really got to experience how widely work cultures can range.
+            Most of my time was spent creating proof of concepts like leader-lines and minimaps (some of which actually ended up being used!) 
+            in Vue.js to be used in the product, which was an application for building AUTOSAR-based operating systems. Hyundai took a strong interest
+            in the overall product and decided to use it in their development process, which was really cool to see.
+          </p>
+          <!-- <h3 class="section-heading">University of California, San Diego</h3>
+          <h3 class="section-heading">San Diego State University</h3> -->
+        </div>
+      </section>
 
 
 
       <div class="third-move section-margin"></div>
 
-        <section class="third-section section right">
-          <div class="section-intro-wrapper">
-            <h1 class="section-title">
-              <span class="section-title-text">My Work</span>
-            </h1>
-            <span class="section-number">03</span>
-          </div>
-          <div class="section-detail-wrapper">
-            <h3 class="section-heading">Personal Portfolio</h3>
-              <p class="section-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit minima similique odit harum ea blanditiis tenetur repudiandae sequi excepturi hic, et officia. Commodi sed odio voluptatum, praesentium nobis soluta fuga?</p>
-              <h3 class="section-heading">Mini-Amazon Web-app</h3>
-              <p class="section-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit minima similique odit harum ea blanditiis tenetur repudiandae sequi excepturi hic, et officia. Commodi sed odio voluptatum, praesentium nobis soluta fuga?</p>
-              <h3 class="section-heading">Proximity Web-App</h3>
-              <p class="section-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit minima similique odit harum ea blanditiis tenetur repudiandae sequi excepturi hic, et officia. Commodi sed odio voluptatum, praesentium nobis soluta fuga?</p>
-              <h3 class="section-heading">Mood Matcher Algorithm</h3>
-              <p class="section-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit minima similique odit harum ea blanditiis tenetur repudiandae sequi excepturi hic, et officia. Commodi sed odio voluptatum, praesentium nobis soluta fuga?</p>
-              <h3 class="section-heading">Market Analyzer</h3>
-              <p class="section-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit minima similique odit harum ea blanditiis tenetur repudiandae sequi excepturi hic, et officia. Commodi sed odio voluptatum, praesentium nobis soluta fuga?</p>
-              <h3 class="section-heading">Mindful Garden</h3>
-              <p class="section-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit minima similique odit harum ea blanditiis tenetur repudiandae sequi excepturi hic, et officia. Commodi sed odio voluptatum, praesentium nobis soluta fuga?</p>
-          </div>
-        </section>
-
-
-
-
-
-
-      </div>
-
-      
+      <section class="third-section section right">
+        <div class="section-intro-wrapper">
+          <h1 class="section-title">
+            <span class="section-title-text">My Work</span>
+          </h1>
+          <span class="section-number">03</span>
+        </div>
+        <div class="section-detail-wrapper">
+          <h3 class="section-heading">Personal Website</h3>
+          <p class="section-text">The idea behind this website first started in a Youtube spiral. I came across a video on
+            award-winning websites and a few of them were Three.js websites; there was one of a ramen shop with flickering 
+            neon lights that I especially loved I remember. Because of that, I researched on how to make my own website in Three.js, 
+            and having taken a few 3D animation courses that taught me Blender before, I decided to design a cafe and model 
+            all the objects myself. After many hours of painstaking work and many different Youtube videos and tutorials, 
+            particularly Andrew Woan's video recreating elements of Boku's site, I was able to make this website look 
+            an aesthetic I loved.
+          </p>
+          <h3 class="section-heading">Spotify-Notion Integration</h3>
+          <p class="section-text"> I created a Notion Integration that connects with the Spotify API in order to create several 
+            different types of Notion databases for different use cases. Such features include:
+            <br>&#x2022; a database to view all the songs they've added to their playlists with capabilities of filtering by playlists,
+            recently added, artists, or most listened to
+            <br>&#x2022; a database to view and sort by statistics determined by Spotify regarding how each song sounds; for example, spotify assigns
+            numbers to how energetic, acoustic, danceable, speechable, etc songs are
+            <br>&#x2022; a database that has recommendations for new songs based on what you've been listening to recently</p>
+          <p class="section-text"> The integration is connected to a web application as well that has a React front end, Flask backend,
+            and Sqlite DB through which the user could not only view the same information as above, but also create new playlists 
+            based on different moods (categorized by the Spotify-determined song statistics) or new recommendations.
+          </p>
+          <h3 class="section-heading">Mini-Amazon Web-app</h3>
+          <p class="section-text">For this project, I worked with 3 teammates on creating an e-commerce website similar to Amazon.
+            We called our website Baemazon, and we used a vanilla Javascript frontend, a Flask back-end, and a PostgreSQL database accessed
+            with SQLAlchemy to mimic all the main functionalities of Amazon. As buyers, users could view products filtered by category 
+            or sorted by inventory stock or price, add products to their shopping cart, and choose to buy a number of products in stock 
+            based on their images and descriptions 
+            if they had enough in their balance for it. Once buying products, users could also leave reviews and ratings of the products.
+            Meanwhile, on the sellers side, which is the portion of the project I was in charge of, users could update their inventories 
+            of the items they were selling, change prices, and view charts of their profit margins, product popularities, and 
+            customer patterns. 
+          </p>
+          <h3 class="section-heading">Proximity Web-App</h3>
+          <p class="section-text">I collaborated with 6 others in the creation of this project, a web-app intended for helping
+             employees determine which days would be the best days to come into work in-person. Built using a React.js front-end,
+             Express.js backend, and a DynamoDB database, the application enabled user login through Okta, and asked users 
+             to provide estimates of when they would be able to come in. It then displayed which team members -- users were 
+             by default were registered in teams under their manager but could create additional teams to be part of with their friends --
+             were likely to come into the office in person on which day, helping prevent employees coming into the office and 
+             facing a lonely day with no friends. I mainly worked on connecting the backend to the database, as well as creating api's for 
+             the frontend to communicate to the backend. Towards the end, I also added automated functional testing with 
+             Microsoft Playwright.
+          </p>
+          <h3 class="section-heading">Market Analyzer</h3>
+          <p class="section-text">This was my first exploration into dealing with financial markets! I trained simple machine learning 
+            models using real stock market data sourced using the Alpha Vantage and Yahoo api's to visualize trends and predict whether
+            shares would be good to buy or sell. However, my models were not complex at all, as they were simple explorations of principal 
+            component analysis, KNN, and GLM's like logistic and linear regression conducted using Pandas, Scikit, and numpy, so they 
+            were quite inaccurate and unpredictable.</p>
+          <h3 class="section-heading">Mindful Garden</h3>
+          <p class="section-text">This application was built for the Fall 2021 HackDuke Hackathon, and I collaborated with 4 friends to build it.
+            It was a simple React.js frontend static website aimed towards helping users better their mental health. It had pages regarding sleep 
+            tracking, meditation, mindful breathing, and mood journaling, with a big emphasis on UI/UX. It ended up winning the prize for the 
+            best Hack for promoting Health & Wellness!
+          </p>
+        </div>
+      </section>
     </div>
-    <script type="module" src="/main.js"></script>
-  </body>
+  </div>
+  <script type="module" src="/main.js"></script>
+</body>
+
 </html>
